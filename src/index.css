@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animation utilities */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Blob animation */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+/* Gradient animation */
+@keyframes animate-gradient-slow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-slow {
+  background-size: 200% 200%;
+  animation: animate-gradient-slow 8s ease infinite;
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg hover:shadow-purple-900/20 border border-white/5 hover:border-purple-500/30;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0a0914;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(18, 17, 26, 0.5);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d2b3b;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3d3b4b;
+}
+
+/* Card styling */
+.glass-card {
+  @apply rounded-xl border backdrop-blur-md shadow-lg shadow-purple-900/5;
+  background: linear-gradient(to bottom right, rgba(26, 25, 37, 0.7), rgba(26, 25, 37, 0.5));
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.purple-glass-card {
+  @apply rounded-xl border backdrop-blur-md shadow-lg shadow-purple-900/5;
+  background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.1), rgba(26, 25, 37, 0.5));
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-4 py-2 rounded-lg transition-all duration-200;
+  @apply bg-purple-500/20 text-purple-400 border border-purple-500/20;
+  @apply hover:bg-purple-500/30 hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-900/20;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50;
+  @apply active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply px-4 py-2 rounded-lg transition-all duration-200;
+  @apply bg-white/5 text-gray-300 border border-white/10;
+  @apply hover:bg-white/10 hover:text-white hover:scale-[1.02];
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20;
+  @apply active:scale-[0.98];
+}
+
+.btn-danger {
+  @apply px-4 py-2 rounded-lg transition-all duration-200;
+  @apply bg-red-500/20 text-red-400 border border-red-500/20;
+  @apply hover:bg-red-500/30 hover:scale-[1.02];
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/50;
+  @apply active:scale-[0.98];
+}
+
+/* Input styling */
+.input-primary {
+  @apply w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white;
+  @apply focus:outline-none focus:border-purple-500/50 focus:bg-purple-900/10;
+  @apply transition-colors duration-200;
+}
+
+/* Switch component */
+.switch-toggle {
+  @apply relative inline-flex h-6 w-11 items-center rounded-full;
+  @apply bg-white/10 hover:bg-white/15 transition-colors duration-200;
+}
+
+.switch-toggle[data-state="checked"] {
+  @apply bg-purple-500/50 hover:bg-purple-500/60;
+}
+
+.switch-toggle:focus {
+  @apply outline-none ring-2 ring-purple-500/50 ring-offset-2 ring-offset-[#0a0914];
+}
+
+.switch-thumb {
+  @apply pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg;
+  @apply transform transition-transform duration-200;
+  transform: translateX(0.125rem);
+}
+
+.switch-thumb[data-state="checked"] {
+  transform: translateX(1.25rem);
+}
+
+/* Recharts customization */
+.recharts-default-tooltip {
+  background-color: rgba(26, 25, 37, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.recharts-tooltip-cursor {
+  fill: rgba(255, 255, 255, 0.05) !important;
+  stroke: none !important;
+}
+
+/* Light theme styles */
+.light-theme {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.light-theme .recharts-default-tooltip {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: #333 !important;
+}
+
+/* DatePicker customization */
+.react-datepicker {
+  background-color: #1a1925 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0.5rem !important;
+  font-family: inherit !important;
+}
+
+.react-datepicker__header {
+  background-color: #12111a !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day {
+  color: #fff !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: rgba(139, 92, 246, 0.2) !important;
+}
+
+.react-datepicker__day--selected {
+  background-color: #8B5CF6 !important;
+}
+
+.react-datepicker__day--disabled {
+  color: #4B5563 !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #fff !important;
+}
+
+.react-datepicker__input-container input {
+  background: transparent !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem 1rem !important;
+  width: 100% !important;
+}
+
+.react-datepicker__input-container input:focus {
+  outline: none !important;
+  border-color: rgba(139, 92, 246, 0.5) !important;
+}
+
+/* Animated gradient for active nav items */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.nav-item-active-gradient {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.3), rgba(167, 139, 250, 0.2), rgba(139, 92, 246, 0.3));
+  background-size: 200% 200%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+/* Improve focus styles for better accessibility */
+:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.5);
+  outline-offset: 2px;
+}
+
+/* Page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 200ms, transform 200ms;
+}
+
+/* Smoother transitions for all interactive elements */
+button, a, input, select {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Prevent layout shift during animation */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Modal animations */
+.modal-backdrop {
+  @apply fixed inset-0 backdrop-blur-sm bg-black/50 z-50;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.modal-content {
+  @apply bg-gradient-to-br from-[#1a1925]/80 to-[#1a1925]/70 rounded-xl border border-purple-500/20;
+  @apply shadow-lg shadow-purple-900/20 backdrop-blur-md p-6;
+  animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
